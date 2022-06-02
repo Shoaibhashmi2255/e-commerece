@@ -1,0 +1,31 @@
+<div class="container-fluid">
+  <div class="row">
+    <section></section>
+  </div>
+</div>
+<div class="container">
+    <div class="row my-5">
+      <div class="col  my-5 mx-5" *ngFor="let _Data of MydataArray">
+        <div class="card" style="width: 18rem;">
+            <img [src]="_Data.Image1" class="card-img-top" alt="...">
+          <div class="card-body bg-light">
+            <h5 class="card-title">{{_Data.Name}}</h5>
+            <p>{{_Data.qty}}</p>
+            <p class="card-text">{{_Data.Description}}</p>
+            <span class="text-success" *ngIf="_Data.qty !==0
+            "><i class="fa-solid fa-check"></i>
+            {{_Data.qty !==0 ? 'Instock' :''}}
+            </span>
+            <span class="text-danger" *ngIf="_Data.qty === 0"><i class="fa-solid fa-xmark"></i>
+              {{_Data.qty === 0 ? 'Outofstock' :''}}
+            </span>
+            <!-- <button href="#" class="btn btn-outline-success w-100" [ngClass]="_Data.qty === 0 ? 'btn btn-outline-danger' : 'tn btn-outline-success' " [disabled]="_Data.qty === 0" >{{_Data.qty === 0 ? 'Out Of Stock' : 'Add to Cart'}}<i class="fa fa-cart-plus" aria-hidden="true"></i></button> -->
+            <button class="btn btn-outline-success  w-100 h-25" [ngClass]="_Data.qty === 0 ? 'btn btn-outline-danger' : 'btn btn-outline-success' " [disabled]="_Data.qty === 0"><p *ngIf="_Data.qty === 0">{{_Data.qty === 0 ? 'Out Of Stock' :''}}</p>
+            <p *ngIf="_Data.qty !== 0"><i class="fa fa-cart-plus" aria-hidden="true"></i>
+            {{_Data.qty !== 0 ? 'Add To Cart' : ''}}</p>
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+</div>
